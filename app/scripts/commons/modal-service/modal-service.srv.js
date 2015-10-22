@@ -10,7 +10,6 @@
       backdrop: true,
       keyboard: true,
       modalFade: true
-      //templateUrl: 'views/default-modal.tpl.html'
     };
 
     var defaultScope = {};
