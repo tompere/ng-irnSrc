@@ -1,13 +1,21 @@
-'use strict';
+(function(app) {
+  'use strict';
 
-angular.module('ngIrnSrcApp', [
-    'ngAnimate',
-    'ngCookies',
-    'ngResource',
-    'ngRoute',
-    'ngSanitize',
-    'ui.bootstrap'
-  ])
-  .config(function(){
-      /** config something **/
+  app.config(function(){
+    /** config something **/
   });
+
+  app.run(function() {
+    /** run something **/
+  });
+
+}(angular.module('ngIrnSrcApp', [
+  'ngAnimate',
+  'ngCookies',
+  'ngResource',
+  'ngRoute',
+  'ngSanitize',
+  'ui.bootstrap'
+])));
+
+
