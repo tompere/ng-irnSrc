@@ -5,7 +5,8 @@ angular.module('ngIrnSrcApp', [
     'ngCookies',
     'ngResource',
     'ngRoute',
-    'ngSanitize'
+    'ngSanitize',
+    'ui.bootstrap'
   ])
   .config(function(){
       /** config something **/
