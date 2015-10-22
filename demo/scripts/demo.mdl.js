@@ -1,7 +1,7 @@
 'use strict';
 angular.module('demoApp', [
-    // TODO - use my-gallery module
+  'ngIrnSrcApp'
 ]).controller('demoCtrl', function(){
-  var vm = this;
-  vm.title = 'demo';
-});
+      var vm = this;
+      vm.title = 'demo';
+    });
