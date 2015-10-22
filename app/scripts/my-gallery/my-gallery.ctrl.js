@@ -2,7 +2,7 @@
   'use strict';
   module.controller('myGalleryController', myGalleryController);
 
-  function myGalleryController($scope) {
+  function myGalleryController() {
 
     var vm = this;
 
@@ -14,14 +14,27 @@
 
     vm.sanity = 'online';
     vm.searchText = '';
+    vm.itemsSelection = [5, 10, 15, 20];
+
+    vm.setResultsPerPage = setResultsPerPage;
 
     init();
 
     function init(){
+      initDefaults();
+    }
+
+    function initDefaults() {
       Object.getOwnPropertyNames(defaults)
-          .map(function(arg){
+          .map(function(arg) {
             vm[arg] = angular.isDefined(vm[arg]) ? vm[arg] : defaults[arg];
           });
+    }
+
+    function setResultsPerPage(selection){
+      if (!isNaN(selection) && selection > 0){
+        vm.resultsPerPage = selection;
+      }
     }
 
   }

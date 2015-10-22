@@ -1,0 +1,12 @@
+<div class="btn-group" uib-dropdown>
+    <button id="split-button" type="button" class="btn btn-default">{{label}}</button>
+    <button type="button" class="btn btn-default" uib-dropdown-toggle>
+        <span class="caret"></span>
+        <span class="sr-only">Split button!</span>
+    </button>
+    <ul class="uib-dropdown-menu" role="menu" aria-labelledby="split-button">
+        <li ng-repeat="opt in options">
+            <a href="#" ng-click="callback({selection : opt})">{{opt}}</a>
+        </li>
+    </ul>
+</div>

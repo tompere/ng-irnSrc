@@ -5,6 +5,11 @@
                 ng-if="vm.search"
                 input="vm.searchText">
         </search-input>
+        <drop-down
+                label="Page Items #"
+                options="vm.itemsSelection"
+                callback="vm.setResultsPerPage(selection)" >
+        </drop-down>
     </header>
 
     <div class="images-gallery">
