@@ -2,7 +2,7 @@
   'use strict';
   module.controller('myGalleryController', myGalleryController);
 
-  function myGalleryController() {
+  function myGalleryController(modalService) {
 
     var vm = this;
 
@@ -14,6 +14,7 @@
 
     vm.setResultsPerPage = setResultsPerPage;
     vm.sortBy = sortBy;
+    vm.openModel = openModel;
 
     init();
 
@@ -43,5 +44,14 @@
       console.log(noramlized);
     }
 
+    function openModel(img){
+      modalService.show({
+        templateUrl : 'views/image-item-modal.tpl.html'
+      }, {
+        title : img.title,
+        url : img.url
+      });
+    }
   }
+
 })(angular.module('ngIrnSrcApp'));
