@@ -6,7 +6,9 @@
     return {
       scope: {
         feed : '=',
-        search : '=?'
+        search : '=?',
+        galleryPagination : '=?',
+        resultsPerPage : '=?'
       },
       restrict: 'E',
       controller: 'myGalleryController',

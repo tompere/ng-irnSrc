@@ -2,9 +2,15 @@
   'use strict';
   module.controller('myGalleryController', myGalleryController);
 
-  function myGalleryController() {
+  function myGalleryController($scope) {
 
     var vm = this;
+
+    var defaults = {
+      search : true,
+      galleryPagination : true,
+      resultsPerPage : 5
+    };
 
     vm.sanity = 'online';
     vm.searchText = '';
@@ -12,7 +18,10 @@
     init();
 
     function init(){
-      vm.search = angular.isDefined(vm.search) ? vm.search : true;
+      Object.getOwnPropertyNames(defaults)
+          .map(function(arg){
+            vm[arg] = angular.isDefined(vm[arg]) ? vm[arg] : defaults[arg];
+          });
     }
 
   }

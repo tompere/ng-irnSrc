@@ -8,13 +8,21 @@
     </header>
 
     <div class="images-gallery">
-        <image-item ng-repeat="img in vm.feed | filter:{title : vm.searchText}"
-                src="img.url"
-                title="img.title" >
+        <image-item ng-repeat="img in vm.feed | filter:{title : vm.searchText} | paginator:vm.currentPage:vm.resultsPerPage:vm.galleryPagination"
+                    src="img.url"
+                    title="img.title" >
         </image-item>
     </div>
 
     <footer class="controlls-footer">
-
+        <uib-pagination
+                ng-init="vm.currentPage = 1"
+                ng-if="vm.galleryPagination"
+                total-items="vm.feed.length"
+                ng-model="vm.currentPage"
+                items-per-page="vm.resultsPerPage"
+                previous-text="Prev">
+        </uib-pagination>
     </footer>
+
 </div>

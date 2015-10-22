@@ -3,8 +3,6 @@
 <head>
     <meta charset="UTF-8">
     <title>my-gallery demo</title>
-    <!--demo page style-->
-    <!--<link rel="stylesheet" href="style/normalize.css">-->
     <!-- my-gallery module style -->
     <link rel="stylesheet" href="../dist/styles/main.css">
     <link rel="stylesheet" href="../dist/styles/vendor.css">
@@ -22,14 +20,35 @@
             <!--</p>-->
         </header>
 
-        <label>
-            <input type="checkbox"
-                   ng-model="enableSearch"> enable search
-        </label>
+        <h3>configuration</h3>
+
+        <ul>
+            <li>
+                <label>
+                    <input type="checkbox"
+                           ng-model="enableSearch"> enable search
+                </label>
+            </li>
+            <li>
+                <label>
+                    <input type="checkbox"
+                           ng-model="enablePagination"> enable pagination
+                </label>
+            </li>
+            <li>
+                <label>
+                    <input type="number"
+                           min="1"
+                           ng-model="pageSize"> page-size
+                </label>
+            </li>
+        </ul>
 
         <my-gallery
                 feed="vm.images"
-                search="enableSearch">
+                search="enableSearch"
+                gallery-pagination="enablePagination"
+                results-per-page="pageSize">
         </my-gallery>
 
     </div>
