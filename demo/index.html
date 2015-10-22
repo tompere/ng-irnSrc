@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>my-gallery demo</title>
+    <!--demo page style-->
+    <link rel="stylesheet" href="style/normalize.css">
+    <!-- my-gallery module style -->
+    <link rel="stylesheet" href="../dist/styles/main.css">
+    <link rel="stylesheet" href="../dist/styles/vendor.css">
+</head>
+<body ng-app="demoApp">
+
+<div ng-controller="demoCtrl as vm">
+
+    <div class="container">
+
+        <div class="jumbotron">
+            <h1>my-gallery</h1>
+            <p class="lead">
+                <img src="images/ironsource.png" alt="I'm Yeoman"><br>
+            </p>
+        </div>
+
+        <div class="row marketing">
+            hello {{vm.title}}
+        </div>
+    </div>
+
+    <div class="footer">
+        <div class="container">
+            <p>
+                <span class="glyphicon glyphicon-user"></span>
+                done by <a href="http://linkedin.com/pub/tom-peres/38/766/a2">tom.peres</a>
+            </p>
+        </div>
+    </div>
+
+</div>
+
+
+<!-- my-gallery module code -->
+<script src="../dist/scripts/vendor.js"></script>
+<script src="../dist/scripts/scripts.js"></script>
+<!--demo page style-->
+<script src="scripts/demo.mdl.js"></script>
+</body>
+</html>
