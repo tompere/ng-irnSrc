@@ -5,11 +5,8 @@
   function myGallery() {
     return {
       scope: {
-        feed : '='
-        //search : '=?',
-        //pagination : '=?',
-        //resultsPerPage : '=?',
-        //sorting : '=?'
+        feed : '=',
+        search : '=?'
       },
       restrict: 'E',
       controller: 'myGalleryController',

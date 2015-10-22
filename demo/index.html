@@ -22,10 +22,16 @@
             <!--</p>-->
         </header>
 
-        <div class="row marketing">
-            <my-gallery
-                    test="{{vm.title}}"></my-gallery>
-        </div>
+        <label>
+            <input type="checkbox"
+                   ng-model="enableSearch"> enable search
+        </label>
+
+        <my-gallery
+                feed="vm.images"
+                search="enableSearch">
+        </my-gallery>
+
     </div>
 
     <div class="footer">

@@ -1,3 +1,20 @@
 <div>
-    <h4>status is : {{vm.sanity}}</h4>
+
+    <header class="controlls-header">
+        <search-input
+                ng-if="vm.search"
+                input="vm.searchText">
+        </search-input>
+    </header>
+
+    <div class="images-gallery">
+        <image-item ng-repeat="img in vm.feed | filter:{title : vm.searchText}"
+                src="img.url"
+                title="img.title" >
+        </image-item>
+    </div>
+
+    <footer class="controlls-footer">
+
+    </footer>
 </div>
