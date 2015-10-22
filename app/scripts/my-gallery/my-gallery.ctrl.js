@@ -12,16 +12,17 @@
       resultsPerPage : 5
     };
 
-    vm.sanity = 'online';
-    vm.searchText = '';
-    vm.itemsSelection = [5, 10, 15, 20];
-
     vm.setResultsPerPage = setResultsPerPage;
+    vm.sortBy = sortBy;
 
     init();
 
     function init(){
       initDefaults();
+      vm.sanity = 'online';
+      vm.searchText = '';
+      vm.itemsSelection = [5, 10, 15, 20];
+      vm.sortBySelection = ['Title', 'Date'];
     }
 
     function initDefaults() {
@@ -35,6 +36,11 @@
       if (!isNaN(selection) && selection > 0){
         vm.resultsPerPage = selection;
       }
+    }
+
+    function sortBy(selection){
+      var noramlized = selection.toLowerCase();
+      console.log(noramlized);
     }
 
   }
