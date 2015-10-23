@@ -2,7 +2,7 @@
   'use strict';
   module.controller('myGalleryController', myGalleryController);
 
-  function myGalleryController(modalService) {
+  function myGalleryController(modalService, removedItemService) {
 
     var vm = this;
 
@@ -19,6 +19,7 @@
     vm.sortImages = sortImages;
     vm.openModel = openModel;
     vm.removeImage = removeImage;
+    vm.clearDeleted = clearDeleted;
 
     init();
 
@@ -51,7 +52,11 @@
     }
 
     function removeImage(img){
-      console.log('remove ' + img.title);
+      removedItemService.notifyDeleted(img);
+    }
+
+    function clearDeleted(){
+      removedItemService.clearAll();
     }
 
     function openModel(img){
@@ -88,7 +93,6 @@
           return res;
         }
       }
-
     }
 
     function sortImages(input){
