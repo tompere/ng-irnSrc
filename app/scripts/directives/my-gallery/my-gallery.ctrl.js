@@ -18,6 +18,7 @@
     vm.sortBy = sortBy;
     vm.sortImages = sortImages;
     vm.openModel = openModel;
+    vm.removeImage = removeImage;
 
     init();
 
@@ -47,6 +48,10 @@
 
     function sortBy(selection){
       vm.sortProperty = selection.toLowerCase();
+    }
+
+    function removeImage(img){
+      console.log('remove ' + img.title);
     }
 
     function openModel(img){

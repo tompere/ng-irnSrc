@@ -91,6 +91,15 @@ body {
   }
 }
 
+/**
+** My style
+**/
+
+@mixin transparent-btt {
+  background: Transparent no-repeat;
+  border: none;
+}
+
 .images-gallery {
   width: 100%;
   height: 350px;
@@ -100,9 +109,6 @@ body {
   margin-top: 10px;
   margin-bottom: 10px;
   padding: 10px;
-  .clickable-image {
-    cursor: pointer;
-  }
 }
 
 .image-item {
@@ -112,6 +118,16 @@ body {
 
 .image-item-container {
   display: inline;
+  position: relative;
+  .glyphicon {
+    position: absolute;
+    top: -40px;
+    left: 0;
+    color: darkgray;
+  }
+  .remove-btn {
+    @include transparent-btt;
+  }
 }
 
 .image-modal-container {
@@ -121,7 +137,6 @@ body {
     max-width: 75%;
   }
   .nav-btn {
-    background: Transparent no-repeat;
-    border: none;
+    @include transparent-btt;
   }
 }

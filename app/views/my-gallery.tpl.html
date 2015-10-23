@@ -24,10 +24,9 @@
                                 | filter:{title : vm.searchText}
                                 | orderBy:vm.sortImages
                                 | paginator:vm.currentPage:vm.resultsPerPage:vm.galleryPagination "
-                    src="img.url"
-                    img-title="img.title"
-                    ng-click="vm.openModel(img)"
-                    class="clickable-image">
+                    image="img"
+                    on-image-click="vm.openModel(img)"
+                    on-image-remove="vm.removeImage(img)">
         </image-item>
     </div>
 

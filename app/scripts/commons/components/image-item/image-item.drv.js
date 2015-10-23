@@ -5,8 +5,9 @@
   function imageItem() {
     return {
       scope: {
-        src : '=',
-        imgTitle : '='
+        image : '=',
+        onImageClick : '&',
+        onImageRemove : '&'
       },
       restrict: 'E',
       templateUrl: 'views/image-item.tpl.html'
