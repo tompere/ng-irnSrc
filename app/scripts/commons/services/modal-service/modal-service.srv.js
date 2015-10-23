@@ -14,7 +14,7 @@
 
     var defaultScope = {};
 
-    function showModal(customOptions, customScope) {
+    function showModal(customOptions, customScope, customClickCallback) {
       var options = {}, scope = {};
       angular.extend(options, defaultOptions, customOptions);
       angular.extend(scope, defaultScope, customScope);
@@ -27,6 +27,9 @@
           };
           $scope.vm.close = function() {
             $modalInstance.dismiss('cancel');
+          };
+          $scope.vm.clickCallback = function(offset){
+            customClickCallback($scope.vm, offset)
           };
         };
       }

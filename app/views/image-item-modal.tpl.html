@@ -1,6 +1,8 @@
 <div class="modal-body image-modal-container">
     <h3>{{vm.title}}</h3>
-    <button class="nav-btn glyphicon glyphicon-menu-left"></button>
+    <button class="nav-btn glyphicon glyphicon-menu-left"
+            ng-click="vm.clickCallback(-1)" ></button>
     <img class="image-modal" ng-src="{{vm.url}}">
-    <button class="nav-btn glyphicon glyphicon-menu-right"></button>
+    <button class="nav-btn glyphicon glyphicon-menu-right"
+            ng-click="vm.clickCallback(1)" ></button>
 </div>
