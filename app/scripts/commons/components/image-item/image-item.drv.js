@@ -6,7 +6,7 @@
     return {
       scope: {
         src : '=',
-        title : '='
+        imgTitle : '='
       },
       restrict: 'E',
       templateUrl: 'views/image-item.tpl.html'
