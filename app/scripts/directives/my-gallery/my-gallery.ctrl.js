@@ -69,7 +69,8 @@
        */
       function navCallback(modalScope, offset){
         var index = calcOffsetIndex(modalScope.url, offset);
-        modalScope.url = vm.feed[index].url; //'http://leolanese.com/blog/wp-content/uploads/2015/09/AngularJS-Shield-large.png';
+        modalScope.url = vm.feed[index].url;
+        modalScope.title = vm.feed[index].title;
       }
 
       function calcOffsetIndex(currentUrl, offset) {
