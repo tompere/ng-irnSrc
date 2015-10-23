@@ -6,11 +6,13 @@
                 input="vm.searchText">
         </search-input>
         <drop-down
+                ng-if="vm.galleryPagination"
                 label="Page Items #"
                 options="vm.itemsSelection"
                 callback="vm.setResultsPerPage(selection)" >
         </drop-down>
         <drop-down
+                ng-if="vm.sorting"
                 label="Sort By"
                 options="vm.sortBySelection"
                 callback="vm.sortBy(selection)" >
@@ -18,7 +20,10 @@
     </header>
 
     <div class="images-gallery">
-        <image-item ng-repeat="img in vm.feed | filter:{title : vm.searchText} | paginator:vm.currentPage:vm.resultsPerPage:vm.galleryPagination"
+        <image-item ng-repeat="img in vm.feed
+                                | filter:{title : vm.searchText}
+                                | orderBy:vm.sortImages
+                                | paginator:vm.currentPage:vm.resultsPerPage:vm.galleryPagination "
                     src="img.url"
                     title="img.title"
                     ng-click="vm.openModel(img)"

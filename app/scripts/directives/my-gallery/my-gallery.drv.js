@@ -8,7 +8,8 @@
         feed : '=',
         search : '=?',
         galleryPagination : '=?',
-        resultsPerPage : '=?'
+        resultsPerPage : '=?',
+        sorting : '=?'
       },
       restrict: 'E',
       controller: 'myGalleryController',

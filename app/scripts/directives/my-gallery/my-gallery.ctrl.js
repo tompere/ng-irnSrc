@@ -6,31 +6,37 @@
 
     var vm = this;
 
-    var defaults = {
+    var configDefaults = {
       search : true,
       galleryPagination : true,
+      sorting : true,
       resultsPerPage : 5
     };
 
+    /** methods API **/
     vm.setResultsPerPage = setResultsPerPage;
     vm.sortBy = sortBy;
+    vm.sortImages = sortImages;
     vm.openModel = openModel;
 
     init();
 
     function init(){
-      initDefaults();
-      vm.sanity = 'online';
-      vm.searchText = '';
-      vm.itemsSelection = [5, 10, 15, 20];
-      vm.sortBySelection = ['Title', 'Date'];
+      initConfigDefaults();
+      initInnerState();
     }
 
-    function initDefaults() {
-      Object.getOwnPropertyNames(defaults)
+    function initConfigDefaults(){
+      Object.getOwnPropertyNames(configDefaults)
           .map(function(arg) {
-            vm[arg] = angular.isDefined(vm[arg]) ? vm[arg] : defaults[arg];
+            vm[arg] = angular.isDefined(vm[arg]) ? vm[arg] : configDefaults[arg];
           });
+    }
+
+    function initInnerState(){
+      vm.itemsSelection = [5, 10, 15, 20];
+      vm.sortBySelection = ['title', 'date'];
+      vm.sortProperty = 'title';
     }
 
     function setResultsPerPage(selection){
@@ -40,8 +46,7 @@
     }
 
     function sortBy(selection){
-      var noramlized = selection.toLowerCase();
-      console.log(noramlized);
+      vm.sortProperty = selection.toLowerCase();
     }
 
     function openModel(img){
@@ -51,6 +56,12 @@
         title : img.title,
         url : img.url
       });
+    }
+
+    function sortImages(input){
+      if (vm.sorting){
+        return input[vm.sortProperty];
+      }
     }
   }
 

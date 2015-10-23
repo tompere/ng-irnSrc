@@ -28,13 +28,19 @@
             <li>
                 <label>
                     <input type="checkbox"
-                           ng-model="enableSearch"> enable search
+                           ng-model="enableSearch"> search
                 </label>
             </li>
             <li>
                 <label>
                     <input type="checkbox"
-                           ng-model="enablePagination"> enable pagination
+                           ng-model="enablePagination"> pagination
+                </label>
+            </li>
+            <li>
+                <label>
+                    <input type="checkbox"
+                           ng-model="enableSorting"> sorting
                 </label>
             </li>
             <li>
@@ -54,6 +60,7 @@
                 feed="vm.images"
                 search="enableSearch"
                 gallery-pagination="enablePagination"
+                sorting="enableSorting"
                 results-per-page="pageSize">
         </my-gallery>
 
