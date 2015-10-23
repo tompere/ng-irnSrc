@@ -113,3 +113,15 @@ body {
 .image-item-container {
   display: inline;
 }
+
+.image-modal-container {
+  text-align: center;
+  .image-modal {
+    margin: auto;
+    max-width: 75%;
+  }
+  .nav-btn {
+    background: Transparent no-repeat;
+    border: none;
+  }
+}
