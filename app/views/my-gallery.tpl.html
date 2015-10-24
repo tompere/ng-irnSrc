@@ -36,7 +36,10 @@
                 total-items="vm.entireGallery.length"
                 ng-model="vm.currentPage"
                 items-per-page="vm.resultsPerPage"
-                previous-text="Prev">
+                previous-text="Prev"
+                max-size="10"
+                class="pagination-sm"
+                boundary-links="true">
         </uib-pagination>
     </footer>
 
