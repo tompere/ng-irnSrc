@@ -9,7 +9,8 @@
         search : '=?',
         galleryPagination : '=?',
         resultsPerPage : '=?',
-        sorting : '=?'
+        sorting : '=?',
+        autoRotateTime : '=?'
       },
       restrict: 'E',
       controller: 'myGalleryController',

@@ -55,6 +55,13 @@
                            ng-model="pageSize"> page-size
                 </label>
             </li>
+            <li>
+                <label>
+                    <input type="number"
+                           min="1"
+                           ng-model="autoRotate"> auto-rotate slideshow (in seconds)
+                </label>
+            </li>
         </ul>
 
         <hr>
@@ -69,7 +76,8 @@
                 search="enableSearch"
                 gallery-pagination="enablePagination"
                 sorting="enableSorting"
-                results-per-page="pageSize">
+                results-per-page="pageSize"
+                auto-rotate-time="autoRotate">
         </my-gallery>
 
     </div>
