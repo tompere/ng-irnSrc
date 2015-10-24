@@ -4,7 +4,8 @@ angular.module('demoApp', [
 ]).controller('demoCtrl', function(){
   var vm = this;
   vm.title = 'demo';
-  vm.images = [{
+  vm.stringImages = 'feed/images.json';
+  vm.arrayImages = [{
     "title": "Blue river (much better in original size - press)",
     "url": "http://farm9.static.flickr.com/8305/7893507666_0d25cd9f30.jpg",
     "date": "Thu, 30 Aug 2012 10:41:00 -0400"

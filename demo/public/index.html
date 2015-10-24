@@ -4,8 +4,8 @@
     <meta charset="UTF-8">
     <title>my-gallery demo</title>
     <!-- my-gallery module style -->
-    <link rel="stylesheet" href="../dist/styles/main.css">
-    <link rel="stylesheet" href="../dist/styles/vendor.css">
+    <link rel="stylesheet" href="gallery-module/main.css">
+    <link rel="stylesheet" href="gallery-module/vendor.css">
 </head>
 <body ng-app="demoApp">
 
@@ -63,7 +63,7 @@
         </h3>
 
         <my-gallery
-                feed="vm.images"
+                feed="vm.stringImages"
                 search="enableSearch"
                 gallery-pagination="enablePagination"
                 sorting="enableSorting"
@@ -85,8 +85,8 @@
 
 
 <!-- my-gallery module code -->
-<script src="../dist/scripts/vendor.js"></script>
-<script src="../dist/scripts/scripts.js"></script>
+<script src="gallery-module/vendor.js"></script>
+<script src="gallery-module/scripts.js"></script>
 <!--demo page style-->
 <script src="scripts/demo.mdl.js"></script>
 </body>
