@@ -19,6 +19,7 @@
       sorting : true,
       resultsPerPage : 5,
       currentPage : 1,
+      autoRotateTime : 4,
       sortProperty : vm.const.SELECT_OPTIONS.SORT_BY[0],
       searchText : ''
     };
