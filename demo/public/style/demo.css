@@ -59,3 +59,7 @@ body {
 .marketing p+h4 {
     margin-top: 28px
 }
+
+.demo-glyphicon {
+    color: #337ab7;
+}

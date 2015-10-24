@@ -11,7 +11,7 @@
     position: absolute;
     top: -35px;
     left: 0;
-    color: darkgray;
+    color: $primary-blue;
   }
   .remove-btn {
     @include transparent-btt;

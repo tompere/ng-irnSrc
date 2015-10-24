@@ -1,6 +1,9 @@
 <div class="image-item-container">
     <button class="remove-btn glyphicon glyphicon-remove"
-            ng-click="onImageRemove()"></button>
+            ng-click="onImageRemove()"
+            uib-tooltip="add to blacklist"
+            tooltip-placement="bottom" >
+    </button>
     <img ng-src="{{image.url}}"
          class="image-item"
          uib-tooltip="{{image.title}}"

@@ -4,7 +4,7 @@
 
 $gallery-height: 350px;
 $gallery-padding: 10px;
-$gallery-margin: 0 10px 0 10px;
+$gallery-top-margin: 10px;
 
 .controls-header {
   position: relative;
@@ -12,22 +12,28 @@ $gallery-margin: 0 10px 0 10px;
   input[type='text'] {
     width: 35%;
     display: inline;
+    color: $primary-blue;
   }
   .controls-header-buttons {
     position: absolute;
     right: 0;
     top: 0;
+    li > a {
+      color: $primary-blue;
+      font-weight: bold;
+    }
   }
 }
 
 .images-gallery {
   width: 100%;
   height: $gallery-height;
-  background-color: lightblue;
+  background-color: #DFEBF6;
   overflow-y: auto;
   overflow-x: hidden;
-  margin: $gallery-margin;
+  margin-top: $gallery-top-margin;
   padding: $gallery-padding;
+  @include bow-shadow;
 }
 
 .gallery-pagination-panel {
@@ -35,10 +41,11 @@ $gallery-margin: 0 10px 0 10px;
 }
 
 .images-carousel-container {
+  @include bow-shadow;
+  margin-top: $gallery-top-margin;
   .images-carousel {
     img {
       padding: $gallery-padding;
-      margin: $gallery-margin;
     }
   }
 }
