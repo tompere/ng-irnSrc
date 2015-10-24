@@ -1,0 +1,18 @@
+.image-item {
+  height: 100px;
+  width: 100px;
+}
+
+.image-item-container {
+  display: inline;
+  position: relative;
+  .glyphicon {
+    position: absolute;
+    top: -40px;
+    left: 0;
+    color: darkgray;
+  }
+  .remove-btn {
+    @include transparent-btt;
+  }
+}

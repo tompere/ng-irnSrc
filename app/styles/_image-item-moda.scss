@@ -1,0 +1,10 @@
+.image-modal-container {
+  text-align: center;
+  .image-modal {
+    margin: auto;
+    max-width: 75%;
+  }
+  .nav-btn {
+    @include transparent-btt;
+  }
+}
