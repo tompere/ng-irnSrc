@@ -1,14 +1,16 @@
-<div class="image-item-container"
-     uib-tooltip="{{image.title}}"
-     tooltip-placement="bottom" >
-
+<div class="image-item-container">
     <button class="remove-btn glyphicon glyphicon-remove"
             ng-click="onImageRemove()" >
     </button>
-    <img preload-image
-         ng-src="{{image.url}}"
-         default-image="https://pbs.twimg.com/profile_images/458890470584614912/om_gjZgx_400x400.png"
-         fallback-image="https://pbs.twimg.com/profile_images/458890470584614912/om_gjZgx_400x400.png"
-         class="image-item"
-         ng-click="onImageClick()">
+    <span ng-click="onImageClick()"
+          style="cursor: pointer"
+          uib-tooltip="{{image.title}}"
+          tooltip-placement="bottom" >
+
+        <img ng-src="{{image.url}}"
+             preload-image
+             default-image="https://pbs.twimg.com/profile_images/458890470584614912/om_gjZgx_400x400.png"
+             fallback-image="https://pbs.twimg.com/profile_images/458890470584614912/om_gjZgx_400x400.png"
+             class="image-item">
+    </span>
 </div>
