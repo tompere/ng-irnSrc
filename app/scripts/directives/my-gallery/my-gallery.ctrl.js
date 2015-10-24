@@ -2,9 +2,15 @@
   'use strict';
   module.controller('myGalleryController', myGalleryController);
 
-  function myGalleryController($scope, feederService, modalService, removedItemService) {
+  function myGalleryController($scope,
+                               feederService,
+                               modalService,
+                               removedItemService,
+                               galleryConstants) {
 
     var vm = this;
+
+    vm.const = galleryConstants;
 
     var dynamicConfig = {
       search : true,
@@ -12,13 +18,9 @@
       sorting : true,
       resultsPerPage : 5,
       currentPage : 1,
-      sortProperty : 'title', // TODO - use constant
+      sortProperty : vm.const.SELECT_OPTIONS.SORT_BY[0],
       searchText : ''
     };
-
-    // TODO - to constants
-    vm.itemsSelection = [5, 10, 15, 20];
-    vm.sortBySelection = ['title', 'date'];
 
     /** methods API **/
     vm.setResultsPerPage = setResultsPerPage;
