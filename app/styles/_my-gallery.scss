@@ -43,6 +43,7 @@ $gallery-top-margin: 10px;
 .images-carousel-container {
   @include bow-shadow;
   margin-top: $gallery-top-margin;
+  background-color: #DFEBF6;
   .images-carousel {
     img {
       padding: $gallery-padding;
