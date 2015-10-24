@@ -6,13 +6,14 @@
                                feederService,
                                modalService,
                                removedItemService,
-                               galleryConstants) {
+                               galleryConstants ) {
 
     var vm = this;
 
     vm.const = galleryConstants;
 
     var dynamicConfig = {
+      feed : null,
       search : true,
       galleryPagination : true,
       sorting : true,
@@ -52,20 +53,30 @@
     function setWatch(prop) {
       var model = 'vm.' + prop;
       $scope.$watch(model, function() {
-        updateGallery();
+        updateGallery(model);
       });
     }
 
-    function updateGallery(){
-      var feeder = feederService.createFeeder()
-          .resolveFeed(vm.feed)
-          .ignoreDeleted()
-          .filter({title: vm.searchText})
-          .orderBy(sortGetter)
-          .paginate(vm.currentPage, vm.resultsPerPage, vm.galleryPagination);
+    function updateGallery(changedModelName){
 
-      vm.entireGallery = feeder.read();
-      vm.paginatedGallery = feeder.readPage();
+      var data = isFeedResolvingRequired() ? vm.feed : vm.resolvedFeed,
+          feeder = feederService.createFeeder();
+
+      feeder.resolveFeed(data)
+          .then(function(resolved){
+            feeder.ignoreDeleted()
+                .filter({title: vm.searchText})
+                .orderBy(sortGetter)
+                .paginate(vm.currentPage, vm.resultsPerPage, vm.galleryPagination);
+
+            vm.resolvedFeed = resolved;
+            vm.entireGallery = feeder.read();
+            vm.paginatedGallery = feeder.readPage();
+          });
+
+      function isFeedResolvingRequired(){
+        return changedModelName === 'vm.feed' || !vm.resolvedFeed;
+      }
     }
 
     function sortGetter(input){

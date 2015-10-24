@@ -4,7 +4,7 @@
 
   module.factory('feederService', feederService);
 
-  function feederService($filter) {
+  function feederService($filter, $q, $http) {
 
     function Feeder() {
 
@@ -12,8 +12,17 @@
           page = [];
 
       function resolveFeed(rawFeed){
-        state = rawFeed;
-        return this;
+        var res;
+        if (angular.isArray(rawFeed)){
+          state = rawFeed;
+          res = state;
+        } else if (angular.isString(rawFeed)){
+          res = $http.get(rawFeed).then(function(response){
+            state = response.data;
+            return state;
+          });
+        }
+        return $q.when(res);
       }
 
       function ignoreDeleted(){
