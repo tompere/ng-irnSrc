@@ -1,7 +1,7 @@
-<div style="height: 305px">
+<div>
     <uib-carousel interval="autoRotateIntervalSec * 1000" >
         <uib-slide ng-repeat="img in images">
-            <img ng-src="{{img.url}}" style="margin:auto; height: 300px; width: 300px">
+            <img class="images-carousel" ng-src="{{img.url}}" style="margin:auto; height: 350px; width: 350px">
             <div class="carousel-caption">
                 <h4>{{img.title}}</h4>
                 <p>Uploaded: {{img.date}}</p>

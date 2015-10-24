@@ -4,11 +4,12 @@
 }
 
 .image-item-container {
-  display: inline;
   position: relative;
+  display: inline;
+  padding: 5px;
   .glyphicon {
     position: absolute;
-    top: -40px;
+    top: -35px;
     left: 0;
     color: darkgray;
   }
