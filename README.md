@@ -8,20 +8,21 @@ includes all module code.
 #### `demo`
 used for consuming, displaying and live configuration of module.
 
-## Install and Usage
+## Install and Run
 
-#### build
+#### Prerequisites
 
-**Prerequisites**
  * npm
  * grunt
  * [ruby-compass](http://compass-style.org/install/) and sass (`gem install sass`)
 
-`grunt build` in main working dir. No need to do so (see below).
+#### Build
 
-#### usage
+execute `grunt build` in root dir.
 
-execute node `node demo/server.js` (it will use _node-static_ to serve the contents of `demo/public`)
+#### Run
+
+execute `node demo/server.js` (it will use _node-static_ to serve the contents of `demo/public`)
 
 ## Architecture and Design Considerations
 

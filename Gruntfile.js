@@ -146,6 +146,7 @@ module.exports = function (grunt) {
           src: [
             '.tmp',
             '<%= yeoman.dist %>/{,*/}*',
+            'demo/public/gallery-module/{,*/}*',
             '!<%= yeoman.dist %>/.git{,*/}*'
           ]
         }]
@@ -254,7 +255,7 @@ module.exports = function (grunt) {
     useminPrepare: {
       html: '<%= yeoman.app %>/index.html',
       options: {
-        dest: '<%= yeoman.dist %>',
+        dest: 'demo/public/gallery-module',
         flow: {
           html: {
             steps: {
@@ -270,8 +271,8 @@ module.exports = function (grunt) {
     // Performs rewrites based on filerev and the useminPrepare configuration
     usemin: {
       html: ['<%= yeoman.dist %>/{,*/}*.html'],
-      css: ['<%= yeoman.dist %>/styles/{,*/}*.css'],
-      js: ['<%= yeoman.dist %>/scripts/{,*/}*.js'],
+      css: ['demo/public/gallery-module/styles/{,*/}*.css'],
+      js: ['demo/public/gallery-module/scripts/{,*/}*.js'],
       options: {
         assetsDirs: [
           '<%= yeoman.dist %>',
@@ -389,7 +390,7 @@ module.exports = function (grunt) {
           expand: true,
           dot: true,
           cwd: '<%= yeoman.app %>',
-          dest: '<%= yeoman.dist %>',
+          dest: 'demo/public/gallery-module',
           src: [
             '*.{ico,png,txt}',
             //'.htaccess',
@@ -406,7 +407,7 @@ module.exports = function (grunt) {
           expand: true,
           cwd: 'bower_components/bootstrap/dist',
           src: 'fonts/*',
-          dest: '<%= yeoman.dist %>'
+          dest: 'demo/public/gallery-module/'
         }]
       },
       styles: {
