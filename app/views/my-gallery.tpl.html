@@ -15,20 +15,15 @@
                 ng-if="vm.sorting"
                 label="Sort By"
                 options="vm.sortBySelection"
-                callback="vm.sortBy(selection)" >
+                callback="vm.setSortOption(selection)" >
         </drop-down>
-        <button class="btn btn-default"
-                ng-click="vm.clearDeleted()">
-            Clear Blacklist
+        <button class="btn btn-primary"
+                ng-click="vm.clearDeleted()">Clear Blacklist
         </button>
     </header>
 
     <div class="images-gallery">
-        <image-item ng-repeat="img in vm.feed
-                                | deleted
-                                | filter:{title : vm.searchText}
-                                | orderBy:vm.sortImages
-                                | paginator:vm.currentPage:vm.resultsPerPage:vm.galleryPagination "
+        <image-item ng-repeat="img in vm.paginatedGallery"
                     image="img"
                     on-image-click="vm.openModel(img)"
                     on-image-remove="vm.removeImage(img)">
@@ -37,9 +32,8 @@
 
     <footer class="controlls-footer">
         <uib-pagination
-                ng-init="vm.currentPage = 1"
                 ng-if="vm.galleryPagination"
-                total-items="vm.feed.length"
+                total-items="vm.entireGallery.length"
                 ng-model="vm.currentPage"
                 items-per-page="vm.resultsPerPage"
                 previous-text="Prev">

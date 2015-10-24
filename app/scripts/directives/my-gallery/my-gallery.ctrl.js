@@ -2,21 +2,27 @@
   'use strict';
   module.controller('myGalleryController', myGalleryController);
 
-  function myGalleryController(modalService, removedItemService) {
+  function myGalleryController($scope, feederService, modalService, removedItemService) {
 
     var vm = this;
 
-    var configDefaults = {
+    var dynamicConfig = {
       search : true,
       galleryPagination : true,
       sorting : true,
-      resultsPerPage : 5
+      resultsPerPage : 5,
+      currentPage : 1,
+      sortProperty : 'title', // TODO - use constant
+      searchText : ''
     };
+
+    // TODO - to constants
+    vm.itemsSelection = [5, 10, 15, 20];
+    vm.sortBySelection = ['title', 'date'];
 
     /** methods API **/
     vm.setResultsPerPage = setResultsPerPage;
-    vm.sortBy = sortBy;
-    vm.sortImages = sortImages;
+    vm.setSortOption = setSortOption;
     vm.openModel = openModel;
     vm.removeImage = removeImage;
     vm.clearDeleted = clearDeleted;
@@ -24,21 +30,46 @@
     init();
 
     function init(){
-      initConfigDefaults();
-      initInnerState();
+      initDynamicConfig();
     }
 
-    function initConfigDefaults(){
-      Object.getOwnPropertyNames(configDefaults)
-          .map(function(arg) {
-            vm[arg] = angular.isDefined(vm[arg]) ? vm[arg] : configDefaults[arg];
+    function initDynamicConfig(){
+      Object.getOwnPropertyNames(dynamicConfig)
+          .forEach(function(arg) {
+            setValueIfNeeded(arg);
+            setWatch(arg);
           });
     }
 
-    function initInnerState(){
-      vm.itemsSelection = [5, 10, 15, 20];
-      vm.sortBySelection = ['title', 'date'];
-      vm.sortProperty = vm.sortBySelection[0];
+    function setValueIfNeeded(arg) {
+      if (!angular.isDefined(vm[arg])) {
+        vm[arg] = dynamicConfig[arg]; // default value
+      }
+    }
+
+    function setWatch(prop) {
+      var model = 'vm.' + prop;
+      $scope.$watch(model, function() {
+        updateGallery();
+      });
+    }
+
+    function updateGallery(){
+      var feeder = feederService.createFeeder()
+          .resolveFeed(vm.feed)
+          .ignoreDeleted()
+          .filter({title: vm.searchText})
+          .orderBy(sortGetter)
+          .paginate(vm.currentPage, vm.resultsPerPage, vm.galleryPagination);
+
+      vm.entireGallery = feeder.read();
+      vm.paginatedGallery = feeder.readPage();
+    }
+
+    function sortGetter(input){
+      if (vm.sorting){
+        return input[vm.sortProperty];
+      }
     }
 
     function setResultsPerPage(selection){
@@ -47,16 +78,18 @@
       }
     }
 
-    function sortBy(selection){
+    function setSortOption(selection){
       vm.sortProperty = selection.toLowerCase();
     }
 
     function removeImage(img){
       removedItemService.notifyDeleted(img);
+      updateGallery();
     }
 
     function clearDeleted(){
       removedItemService.clearAll();
+      updateGallery();
     }
 
     function openModel(img){
@@ -66,7 +99,8 @@
           modalScope = {
             title: img.title,
             url: img.url
-          };
+          },
+          gallery = vm.paginatedGallery;
 
       modalService.show(config, modalScope, navCallback);
 
@@ -79,27 +113,22 @@
        */
       function navCallback(modalScope, offset){
         var index = calcOffsetIndex(modalScope.url, offset);
-        modalScope.url = vm.feed[index].url;
-        modalScope.title = vm.feed[index].title;
+        modalScope.url = gallery[index].url;
+        modalScope.title = gallery[index].title;
       }
 
       function calcOffsetIndex(currentUrl, offset) {
-        var res = offset + (_.findIndex(vm.feed, {url: currentUrl})); // assuming url is unique
+        var res = offset + (_.findIndex(gallery, {url: currentUrl})); // assuming url is unique
         if (res < 0){
           return 0;
-        } else if (res >= vm.feed.length){
-          return vm.feed.length - 1;
+        } else if (res >= gallery.length){
+          return gallery.length - 1;
         } else {
           return res;
         }
       }
     }
 
-    function sortImages(input){
-      if (vm.sorting){
-        return input[vm.sortProperty];
-      }
-    }
   }
 
 })(angular.module('ngIrnSrcApp'));

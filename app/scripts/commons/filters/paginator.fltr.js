@@ -4,16 +4,22 @@
 
     return function(input, pageIndex, pageSize, enabled){
       if (enabled && isInputValid(pageIndex, pageSize)){
-        return extractSubArray(pageIndex, pageSize, input);
+        return paginate(pageIndex, pageSize, input);
       } else {
         return input;
       }
     };
 
-    function extractSubArray(pageIndex, pageSize, input) {
-      var start = (pageIndex - 1) * pageSize;
-      var howMany = Math.min(pageSize, input.length);
-      return input.splice(start, howMany);
+    function paginate(pageIndex, pageSize, arr) {
+      var end,
+          start = (pageIndex - 1) * pageSize,
+          last = arr.length;
+
+      if (start < last){
+        end = Math.min(start + pageSize, last);
+      }
+
+      return arr.slice(start, end);
     }
 
     function isInputValid(pageIndex, pageSize){
