@@ -21,13 +21,14 @@
   }
 
 }(angular.module('ngIrnSrcApp', [
-  'ngAnimate',
-  'ngCookies',
-  'ngResource',
-  'ngRoute',
-  'ngSanitize',
-  'ui.bootstrap',
-  'LocalStorageModule'
+      'ngAnimate',
+      'ngCookies',
+      'ngResource',
+      'ngRoute',
+      'ngSanitize',
+      'ui.bootstrap',
+      'LocalStorageModule',
+      'angular-preload-image'
 ])));
 
 
