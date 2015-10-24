@@ -75,7 +75,7 @@
           });
 
       function isFeedResolvingRequired(){
-        return changedModelName === 'vm.feed' || !vm.resolvedFeed;
+        return changedModelName === 'vm.feed';
       }
     }
 
