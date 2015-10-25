@@ -1,19 +1,23 @@
-.image-item {
-  height: 100px;
-  width: 100px;
-}
-
 .image-item-container {
-  position: relative;
   display: inline;
-  padding: 5px;
-  .glyphicon {
-    position: absolute;
-    top: -35px;
-    left: 0;
-    color: $primary-blue;
-  }
-  .remove-btn {
-    @include transparent-btt;
+  .image-content-container {
+    position: relative;
+    .glyphicon {
+      position: absolute;
+      top: -35px;
+      left: 0;
+      color: $primary-blue;
+    }
+    .remove-btn {
+      @include transparent-btt;
+    }
+    .image-item {
+      right: 0;
+      height: 100px;
+      width: 100px;
+    }
+    img {
+      margin: 5px;
+    }
   }
 }

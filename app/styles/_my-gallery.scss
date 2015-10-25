@@ -32,7 +32,6 @@ $gallery-top-margin: 10px;
   overflow-y: auto;
   overflow-x: hidden;
   margin-top: $gallery-top-margin;
-  padding: $gallery-padding;
   @include bow-shadow;
 }
 
