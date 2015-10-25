@@ -12,17 +12,23 @@ used for consuming, displaying and live configuration of module.
 
 #### Prerequisites
 
+ * bower
  * npm
  * grunt
- * [ruby-compass](http://compass-style.org/install/) and sass (`gem install sass`)
+ * [ruby-compass](http://compass-style.org/install/) and sass : `gem install compass` && `gem install sass`
+ * node-static (used only for serving demo files): `npm install node-static`
 
 #### Build
 
-execute `grunt build` in root dir.
+first, make sure above prerequisites are properly installed. then, cd into root dir:
+
+* `bower install` (resolve to angualr 1.4.7 if conflict is prompt)
+* `npm install`
+* `grunt build`
 
 #### Run
 
-execute `node demo/server.js` (it will use _node-static_ to serve the contents of `demo/public`)
+cd into `demo/`, execute `node server.js` and visit `localhost:8080`.
 
 ## Architecture and Design Considerations
 
